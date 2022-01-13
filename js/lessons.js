@@ -355,7 +355,7 @@ console.log(add); //{ d: 17, e: 20 }
 console.log(clone); //{ d: 20, e: 20 } получаем независимую копию
 
 
-//spread-оператор
+//spread-оператор (оператор разворота) разворачивает структуру и превращает её в набор каких-то данных
 
 const q = {
     one: 1,
@@ -384,12 +384,14 @@ const anotherArr = [2, 3, 4, 6, 8];
 anotherArr.pop(); //метод pop() удаляет последний элемент [2, 3, 4, 6]
 anotherArr.push(10); //метод push() добавляет элемент в конец массива [2, 3, 4, 6, 8, 10]
 
-//перебор массива
+//Перебор массива
 
+//метод for
 for (let i = 0; i < anotherArr.length; i++) { //перебор будет совершаться пока не закончатся элементы внутри массива
     console.log(anotherArr[i]); //2 3 4 6 8
 }
 
+//метод for of
 for (let value of anotherArr) {
     console.log(value); //2 3 4 6 8 тоже самое
 }
@@ -406,10 +408,33 @@ anotherArr.forEach(function(item, index, arr) { //item - элемент кото
 //arr.reduce
 
 
-const anotherStr = prompt("", "");
-const products = anotherStr.split(", "); //метод split() превращает строку в массив с заданным разделителем
-products.sort(); //метод sort() сортировка массива по алфавиту, если не передавать функцию сравнения - сортирует элементы как строки
-console.log(products.join("; ")); //метод join() превращает массив в строку с заданным разделителем
+//метод split() превращает строку в массив с заданным разделителем
+
+const anotherStr = prompt("", ""); //qqq, ddd, fff, zzz - вводим строки
+const products = anotherStr.split(", ");
+//получаем массив
+//0: "qqq",
+//1: "ddd",
+//2: "fff"
+//3" "zzz"
+
+
+
+//метод join() превращает массив в строку с заданным разделителем
+
+products.join("; "); // qqq, ddd, fff, zzz - вводим строки
+
+//массив обратно склеиваем в строку с разделителем ;
+
+//qqq; ddd; fff; zzz
+
+
+//метод sort() сортировка массива по алфавиту, если не передавать функцию сравнения - сортирует элементы как строки
+
+products.sort(); // qqq, aaa, bbb - вводим строки
+//aaa; bbb; qqqq - все отсортировалось в алфавитном порядке
+
+
 
 
 const arrNums = [2, 13, 26, 8, 10];
@@ -432,15 +457,17 @@ console.log(arrNums); //[ 2, 8, 10, 13, 26 ]
 //====== Передача по ссылке и по значению ======//
 
 const oldArray = ['a', 'b', 'c']
-//const newwArray = olddArray - в newArray положиться ссылка на oldArray !
-const newArray = oldArray.slice(); //создаем копию
+//const newwArray = olddArray - в newArray положится ссылка на oldArray !
+
+//метод slice() позволяет создать копию массива 
+const newArray = oldArray.slice();
 
 newArray[1] = 'asdasddsa'
 console.log(newArray); //[ 'a', 'asdasddsa', 'c' ]
 console.log(oldArray); //[ 'a', 'b', 'c' ] 2 разных массива
 
 
-//spread-оператор
+//spread-оператор (оператор разворота) разворачивает структуру и превращает её в набор элементов
 
 const video = ['youtube', 'vimeo', 'rutube'];
 const blogs = ['wordpress', 'livejournal', 'blogger'];
@@ -635,19 +662,19 @@ div.classList.add('black'); //метод add() на свойстве classList
 
 //Метод append()
 
-document.body.append(div) //берем тег body как родителя и во внутрь в конец добавляем ddiv
-document.querySelector('.wrapper').append(div); //берем класс wrapper как родителя и во внутрь в конец добавляем ddiv
-wrapper.append(div); //берем класс wrapper как родителя и во внутрь в конец добавляем ddiv
+document.body.append(div) //берем тег body как родителя и во внутрь в конец добавляем div
+document.querySelector('.wrapper').append(div); //берем класс wrapper как родителя и во внутрь в конец добавляем div
+wrapper.append(div); //берем класс wrapper как родителя и во внутрь в конец добавляем div
 
 //Метод prepend()
 
-wrapper.prepend(div); //берем класс wrapper как родителя и во внутрь в начало добавляем ddiv
+wrapper.prepend(div); //берем класс wrapper как родителя и во внутрь в начало добавляем div
 
 
 //Методы before() и after()
 
-hearts[0].before(div); //вставляем ddiv перед hearts[0]
-hearts[0].after(div); //вставляем ddiv после hearts[0]
+hearts[0].before(div); //вставляем div перед hearts[0]
+hearts[0].after(div); //вставляем div после hearts[0]
 
 
 //Метод remove()
